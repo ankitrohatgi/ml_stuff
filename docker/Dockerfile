@@ -1,6 +1,8 @@
 FROM nvidia/cuda:9.2-cudnn7-devel
-
-RUN apt-get update && apt-get install -y git && \
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update
+RUN apt-get -f install
+RUN apt-get install -y git && \
     apt-get install -y sudo && \
     apt-get install -y python-tk && \
     apt-get install -y python-opencv && \
